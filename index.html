@@ -3,41 +3,394 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Anand Kumar Meher</title>
+  <title>Anand Kumar Meher — Lead Member of Technical Staff at CoverSelf</title>
+  <meta name="description" content="Anand Kumar Meher — Lead Member of Technical Staff at CoverSelf. Manager / SDET with 12+ years in API & Selenium automation, performance testing, CI/CD, and quality engineering leadership.">
+  <meta name="author" content="Anand Kumar Meher">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Anand Kumar Meher">
+  <meta property="og:description" content="Lead Member of Technical Staff at CoverSelf · Automation & Quality Engineering Leader">
+  <meta property="og:image" content="https://github.com/anandmeher.png">
+  <meta property="og:url" content="https://anandkumarmeher.com">
+
+  <link rel="icon" href="https://github.com/anandmeher.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    body{font-family:Arial,sans-serif;max-width:900px;margin:auto;padding:20px;}
-    header{display:flex;align-items:center; gap:15px;}
-    img{border-radius:50%;width:100px;}
-    .links a{margin-right:12px;text-decoration:none;color:#0366d6;}
-    .section{margin-top:24px;}
+    :root{
+      --bg:#0b0f17;
+      --bg-soft:#111726;
+      --card:#151c2c;
+      --border:#222c42;
+      --text:#e6ebf5;
+      --muted:#94a3b8;
+      --accent:#38bdf8;
+      --accent-2:#818cf8;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:radial-gradient(1200px 600px at 80% -10%,rgba(56,189,248,.10),transparent 60%),
+                 radial-gradient(900px 500px at -10% 10%,rgba(129,140,248,.10),transparent 55%),
+                 var(--bg);
+      color:var(--text);
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:var(--accent);text-decoration:none;transition:color .2s;}
+    a:hover{color:#7dd3fc;}
+    .wrap{max-width:980px;margin:0 auto;padding:0 22px;}
+
+    /* Nav */
+    nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(10px);
+      background:rgba(11,15,23,.7);
+      border-bottom:1px solid var(--border);
+    }
+    nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;}
+    .brand{font-weight:700;letter-spacing:.2px;}
+    .navlinks a{margin-left:22px;color:var(--muted);font-size:.95rem;font-weight:500;}
+    .navlinks a:hover{color:var(--text);}
+    @media(max-width:720px){.navlinks{display:none;}}
+
+    /* Hero */
+    header.hero{padding:70px 0 50px;}
+    .hero-grid{display:flex;align-items:center;gap:34px;flex-wrap:wrap;}
+    .avatar{
+      width:140px;height:140px;border-radius:50%;
+      border:3px solid var(--accent);
+      box-shadow:0 0 0 6px rgba(56,189,248,.12),var(--shadow);
+      object-fit:cover;
+    }
+    .hero h1{
+      font-size:clamp(2rem,5vw,3rem);line-height:1.1;margin:0 0 10px;
+      background:linear-gradient(90deg,#fff,#9ec5ff);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .tagline{font-size:1.12rem;color:var(--accent-2);font-weight:600;margin:0 0 6px;}
+    .location{color:var(--muted);margin:0 0 16px;font-size:.95rem;}
+    .hero p.lead{color:var(--muted);max-width:640px;margin:0 0 22px;}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:11px 18px;border-radius:10px;font-weight:600;font-size:.95rem;
+      border:1px solid var(--border);background:var(--card);color:var(--text);
+      transition:transform .15s,border-color .2s,background .2s;
+    }
+    .btn:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--text);}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#08111f;border:none;}
+    .btn.primary:hover{color:#08111f;opacity:.95;}
+
+    /* Sections */
+    section{padding:42px 0;border-top:1px solid var(--border);}
+    section h2{font-size:1.5rem;margin:0 0 8px;display:flex;align-items:center;gap:10px;}
+    section h2::before{content:"";width:8px;height:24px;border-radius:4px;background:linear-gradient(180deg,var(--accent),var(--accent-2));}
+    .sub{color:var(--muted);margin:0 0 26px;}
+
+    /* Stats */
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;}
+    .stat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;text-align:center;}
+    .stat .num{font-size:1.9rem;font-weight:800;color:var(--accent);}
+    .stat .lbl{color:var(--muted);font-size:.88rem;}
+
+    /* About bullets */
+    .about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:24px;}
+    .about-grid .point{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;}
+    .about-grid .point strong{color:var(--text);}
+    .about-grid .point span{color:var(--muted);font-size:.94rem;}
+
+    /* Skills */
+    .skillgroup{margin-bottom:18px;}
+    .skillgroup h4{margin:0 0 10px;color:var(--accent-2);font-size:.95rem;text-transform:uppercase;letter-spacing:.5px;}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;}
+    .chip{
+      background:var(--bg-soft);border:1px solid var(--border);
+      padding:8px 14px;border-radius:999px;font-size:.9rem;font-weight:500;color:var(--text);
+      transition:border-color .2s,transform .15s;
+    }
+    .chip:hover{border-color:var(--accent);transform:translateY(-2px);}
+
+    /* Timeline */
+    .timeline{position:relative;padding-left:28px;}
+    .timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--border);}
+    .tl-item{position:relative;margin-bottom:30px;}
+    .tl-item::before{
+      content:"";position:absolute;left:-28px;top:6px;width:14px;height:14px;border-radius:50%;
+      background:var(--accent);box-shadow:0 0 0 4px rgba(56,189,248,.15);
+    }
+    .tl-item h3{margin:0;font-size:1.08rem;}
+    .tl-item .company{color:var(--accent-2);font-weight:600;font-size:.95rem;margin:2px 0;}
+    .tl-item .meta{color:var(--muted);font-size:.85rem;margin:0 0 8px;}
+    .tl-item ul{margin:8px 0 0;padding-left:18px;color:var(--muted);}
+    .tl-item ul li{margin-bottom:4px;}
+    .tl-item p{margin:0;color:var(--muted);}
+
+    /* Cards grid */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;transition:transform .15s,border-color .2s;}
+    .card:hover{transform:translateY(-3px);border-color:var(--accent);}
+    .card h3{margin:0 0 8px;font-size:1.05rem;}
+    .card p{margin:0;color:var(--muted);font-size:.95rem;}
+    .card .yr{color:var(--accent);font-size:.82rem;font-weight:600;}
+
+    .ghstats img{max-width:100%;border-radius:12px;border:1px solid var(--border);}
+
+    /* Footer */
+    footer{padding:40px 0;border-top:1px solid var(--border);text-align:center;color:var(--muted);}
+    footer .social a{margin:0 10px;font-weight:500;}
   </style>
 </head>
 <body>
 
-<header>
-  <img src="https://github.com/anandmeher.png" alt="Anand Meher">
-  <div>
-    <h1>Anand Kumar Meher</h1>
-    <p>Lead Member of Technical Staff | Automation & Testing Expert</p>
-    <div class="links">
-      <a href="https://github.com/anandmeher">GitHub</a> |
-      <a href="https://www.linkedin.com/in/anand-meher">LinkedIn</a>
+<nav>
+  <div class="wrap">
+    <span class="brand">Anand Kumar Meher</span>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#certs">Certifications</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <img class="avatar" src="https://github.com/anandmeher.png" alt="Anand Kumar Meher">
+    <div>
+      <h1>Anand Kumar Meher</h1>
+      <p class="tagline">Lead Member of Technical Staff at CoverSelf</p>
+      <p class="location">📍 Bengaluru, Karnataka, India</p>
+      <p class="lead">Solutions-focused Manager / Software Engineer in Test with 12+ years of automation and manual testing experience in Agile environments. I lead teams building automation frameworks for highly scalable, microservices-based platforms — with a strong foundation in Java, API &amp; Selenium automation, performance testing, and CI/CD.</p>
+      <div class="cta">
+        <a class="btn primary" href="#contact">Get in touch</a>
+        <a class="btn" href="https://www.linkedin.com/in/anand-meher" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn" href="https://github.com/anandmeher" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
     </div>
   </div>
 </header>
 
-<section class="section">
-  <h2>About Me</h2>
-  <p>A solutions-focused Lead Member of Technical Staff with 12+ years of experience in Automation, Manual testing and Agile Methodology. Skilled in Java, API & Selenium automation, CI/CD, Docker, Microservices and more.</p>
-</section>
+<main class="wrap">
 
-<section class="section">
-  <h2>GitHub Stats</h2>
-  <img src="https://github-readme-stats.vercel.app/api?username=anandmeher&show_icons=true&theme=dark" alt="GitHub Stats">
-</section>
+  <section id="about">
+    <h2>About Me</h2>
+    <p class="sub">Quality engineering leadership, hands-on automation</p>
+    <p>Solutions-focused Manager Software Engineer in Test with 12+ years of automation and manual testing experience in Agile Methodology and a strong foundation in Java. I provide technical leadership in delivering automation frameworks for highly scalable, manageable, and extensible platforms built on Microservices, Kafka, NoSQL, and Docker. I love coaching, mentoring, and guiding teams toward their career goals — leading by example, especially under tight deadlines.</p>
 
-<footer style="margin-top:40px;color:#555;">
-  <p>&copy; 2025 Anand Kumar Meher</p>
+    <div class="stats" style="margin-top:26px;">
+      <div class="stat"><div class="num">12+</div><div class="lbl">Years Experience</div></div>
+      <div class="stat"><div class="num">SDET</div><div class="lbl">Leadership</div></div>
+      <div class="stat"><div class="num">API + UI</div><div class="lbl">Automation</div></div>
+      <div class="stat"><div class="num">CI/CD</div><div class="lbl">&amp; Performance</div></div>
+    </div>
+
+    <div class="about-grid">
+      <div class="point"><strong>Technical Leadership</strong><br><span>Managing Agile QA teams, estimating efforts, identifying risks, and meeting project schedules.</span></div>
+      <div class="point"><strong>Framework Engineering</strong><br><span>Built the Generic Fulcrum Framework and project-specific frameworks, test beds, and simulation environments.</span></div>
+      <div class="point"><strong>API &amp; Web Testing</strong><br><span>REST and SOAP API testing plus end-to-end Selenium automation on web applications.</span></div>
+      <div class="point"><strong>CI/CD &amp; Cloud</strong><br><span>Advanced knowledge of CI/CD toolchains, infrastructure, and cloud services on AWS / GCP.</span></div>
+      <div class="point"><strong>Test Data &amp; Tooling</strong><br><span>Handling external data sources — CSV, YAML, MongoDB, MSSQL, JSON, XML.</span></div>
+      <div class="point"><strong>Full Test Lifecycle</strong><br><span>Smoke, component, integration, system, and regression testing across SDLC / STLC.</span></div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills &amp; Tooling</h2>
+    <p class="sub">Top skills and the stack I work with</p>
+
+    <div class="skillgroup">
+      <h4>Top Skills</h4>
+      <div class="chips">
+        <span class="chip">Technical Project Leadership</span>
+        <span class="chip">Test Scripts</span>
+        <span class="chip">k6 Load Testing</span>
+      </div>
+    </div>
+
+    <div class="skillgroup">
+      <h4>Automation &amp; Languages</h4>
+      <div class="chips">
+        <span class="chip">Java</span>
+        <span class="chip">Selenium</span>
+        <span class="chip">API Automation (REST &amp; SOAP)</span>
+        <span class="chip">JUnit 5</span>
+        <span class="chip">Fulcrum Framework</span>
+        <span class="chip">JMeter</span>
+        <span class="chip">k6</span>
+      </div>
+    </div>
+
+    <div class="skillgroup">
+      <h4>Platforms &amp; DevOps</h4>
+      <div class="chips">
+        <span class="chip">Microservices</span>
+        <span class="chip">Kafka</span>
+        <span class="chip">NoSQL / MongoDB</span>
+        <span class="chip">Docker</span>
+        <span class="chip">Jenkins</span>
+        <span class="chip">Git</span>
+        <span class="chip">CI/CD</span>
+        <span class="chip">AWS</span>
+        <span class="chip">GCP</span>
+      </div>
+    </div>
+
+    <div class="skillgroup">
+      <h4>Process &amp; Data</h4>
+      <div class="chips">
+        <span class="chip">Agile / Scrum</span>
+        <span class="chip">SDLC / STLC</span>
+        <span class="chip">Manual Testing</span>
+        <span class="chip">Performance Testing</span>
+        <span class="chip">CSV / YAML / JSON / XML</span>
+        <span class="chip">MSSQL</span>
+        <span class="chip">HP Quality Centre / Mantis / Bugzilla</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <p class="sub">13+ years across product, travel-tech, and training</p>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <h3>Lead Member of Technical Staff</h3>
+        <div class="company">CoverSelf</div>
+        <div class="meta">Sep 2022 – Present · Bengaluru</div>
+        <p>Leading automation strategy and quality engineering for a healthcare-tech platform built on microservices, Kafka, NoSQL, and Docker — mentoring SDETs and embedding continuous testing into CI/CD.</p>
+      </div>
+
+      <div class="tl-item">
+        <h3>Manager Software Engineer in Test</h3>
+        <div class="company">Neustar, Inc.</div>
+        <div class="meta">Sep 2021 – Sep 2022 · Bangalore Urban · (4 yrs 9 mos total at Neustar)</div>
+        <p>Managed the Agile QA team, owned test planning and coordination, and led delivery of automation frameworks for a scalable, extensible platform.</p>
+      </div>
+
+      <div class="tl-item">
+        <h3>Software Engineer III in Test</h3>
+        <div class="company">Neustar, Inc.</div>
+        <div class="meta">May 2021 – Oct 2021 · Bengaluru</div>
+      </div>
+
+      <div class="tl-item">
+        <h3>Software Engineer II in Test</h3>
+        <div class="company">Neustar, Inc.</div>
+        <div class="meta">Jan 2018 – Jul 2021 · Bengaluru</div>
+      </div>
+
+      <div class="tl-item">
+        <h3>Sr. Software Engineer — QA / API Automation &amp; Selenium</h3>
+        <div class="company">Yatra Online Pvt Ltd · Travelguru</div>
+        <div class="meta">Nov 2014 – Dec 2017 · Bangalore</div>
+        <ul>
+          <li>Developed an API automation framework based on Java 8 and JUnit 5.</li>
+          <li>Built generic and project-specific frameworks with automatic test discovery and a data-driven approach.</li>
+          <li>Automated REST and SOAP APIs with the Fulcrum Framework and JMeter; ran load &amp; performance testing.</li>
+          <li>Integrated automation with GIT pipelines and Jenkins; led the automation team.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <h3>Software QA Engineer</h3>
+        <div class="company">Pronto Software Solutions Pvt Ltd</div>
+        <div class="meta">Apr 2013 – Nov 2014 · Bangalore</div>
+        <ul>
+          <li>Identified and created business components, generic scripts, and reusable E2E methods.</li>
+          <li>Ran batch test suites, verified results, logged defects, and reported status to management.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <h3>Technical Trainer</h3>
+        <div class="company">QSpiders — Software Testing Training Institute</div>
+        <div class="meta">Sep 2012 – Nov 2016</div>
+        <p>Trained freshers and experienced employees on software testing, automation testing, and project training.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <p class="sub">Computer Science &amp; Engineering</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Bachelor of Technology — Computer Science &amp; Engineering</h3>
+        <p class="yr">2007 – 2011</p>
+        <p>PKA College of Engineering, Orissa · Biju Patnaik University of Technology (BPUT), Odisha</p>
+      </div>
+      <div class="card">
+        <h3>Intermediate — Science</h3>
+        <p class="yr">2004 – 2006</p>
+        <p>APS College, Roth</p>
+      </div>
+      <div class="card">
+        <h3>High School / Secondary Certificate</h3>
+        <p class="yr">2002 – 2004</p>
+        <p>Panchayat High School, Agalpur-Raj</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="certs">
+    <h2>Certifications &amp; Languages</h2>
+    <p class="sub">Continuous learning</p>
+    <div class="grid">
+      <div class="card"><h3>Claude Code in Action</h3><p>AI-assisted software development</p></div>
+      <div class="card"><h3>Docker: Continuous Delivery</h3><p>Containerized CI/CD workflows</p></div>
+      <div class="card"><h3>Programming Foundations: Software Quality Assurance</h3><p>QA fundamentals</p></div>
+      <div class="card"><h3>Super Tester Badge</h3><p>Testing Skills Webinar with Pooja Shah</p></div>
+      <div class="card"><h3>Level I Certification</h3><p>Professional certification</p></div>
+    </div>
+    <div class="skillgroup" style="margin-top:26px;">
+      <h4>Languages</h4>
+      <div class="chips">
+        <span class="chip">English — Full Professional</span>
+        <span class="chip">Hindi — Full Professional</span>
+        <span class="chip">Oriya — Full Professional</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="github">
+    <h2>GitHub Activity</h2>
+    <p class="sub">Open-source presence</p>
+    <div class="ghstats">
+      <img src="https://github-readme-stats.vercel.app/api?username=anandmeher&show_icons=true&theme=tokyonight&hide_border=true&bg_color=151c2c&title_color=38bdf8&icon_color=818cf8&text_color=e6ebf5" alt="Anand's GitHub Stats">
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Get In Touch</h2>
+    <p class="sub">Let's connect</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:er.anandmeher@gmail.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/anand-meher" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      <a class="btn" href="https://github.com/anandmeher" target="_blank" rel="noopener">View GitHub</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="social">
+    <a href="mailto:er.anandmeher@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/anand-meher" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/anandmeher" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <p>&copy; 2026 Anand Kumar Meher · Bengaluru, India</p>
 </footer>
 
 </body>
